@@ -1,61 +1,117 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+Kijabe Hospital Procurement System
+This is a web application developed using Laravel, designed to manage procurement processes within Kijabe Hospital.
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Features
+User Authentication: Login and logout functionality.
 
-## About Laravel
+Dashboard: A central landing page.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+RFQ Management: A section to view Request for Quotation (RFQs) in a table.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Items Management: Functionality of the items.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Settings Page: A personal settings page.
 
-## Learning Laravel
+Responsive Design: Uses Tailwind CSS for a clean and adaptive user interface.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Technologies Used
+PHP 
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Laravel Framework 
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+MySQL Database
 
-## Laravel Sponsors
+Composer
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Tailwind CSS
 
-### Premium Partners
+Blade Templating Engine
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+Git & GitHub
 
-## Contributing
+Getting Started
+Follow these steps to set up and run the project locally.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Prerequisites
+XAMPP (Includes Apache and MySQL)
 
-## Code of Conduct
+Composer
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Git
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Create a Test User (Manual Insertion):
+You need to manually add a user to the users table via phpMyAdmin to log in.
 
-## License
+Generate a Hashed Password:
+Open your terminal in the project root and run:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+php artisan tinker
+echo \Illuminate\Support\Facades\Hash::make('1234');
+
+Copy the long string outputted (e.g., $2y$12$...). This is your hashed password. Type exit to leave Tinker.
+
+Insert User in phpMyAdmin:
+
+Go to http://localhost/phpmyadmin/ 
+
+Select your database (from .env).
+
+Click on the users table.
+
+Go to the Insert tab.
+
+Fill in the details:
+
+name: Admin User
+
+email: admin@example.com
+
+password: Paste the hashed password you copied from Tinker.
+
+first_name: Admin 
+last_name: User 
+
+Set created_at and updated_at to CURRENT_TIMESTAMP.
+
+Click Go.
+
+Usage
+Start the Development Server:
+
+php artisan serve
+
+Access the Application:
+Open your web browser and go to: http://127.0.0.1:8000/
+
+Login Credentials:
+
+Email: admin@example.com
+
+Password: 1234
+
+Navigate:
+Use the navigation bar to access different sections like Dashboard, RFQ, Items, and Settings.
+
+Project Structure (Key Files)
+app/Models/User.php: User Eloquent model.
+
+app/Models/Item.php: Item Eloquent model.
+
+app/Http/Controllers/LoginController.php: Handles login and logout logic.
+
+routes/web.php: Defines all web routes for the application.
+
+resources/views/: Contains all Blade templates.
+
+resources/views/login.blade.php: The login form.
+
+resources/views/dashboard.blade.php: The main dashboard page.
+
+resources/views/rfq.blade.php: The Request for Quotation page.
+
+resources/views/items/: Folder containing views for item management.
+
+resources/views/settings.blade.php: The settings page.
+
+resources/views/components/layout.blade.php: The main Blade component layout.
