@@ -10,7 +10,6 @@
             font-family: 'Inter', sans-serif;
             background-color: #f3f4f6;
         }
-        /* Add any global styles here if needed */
     </style>
 </head>
 <body class="bg-gray-100 min-h-screen">
@@ -18,7 +17,6 @@
         <div class="container mx-auto flex justify-between items-center">
             <a href="/" class="text-xl font-bold">Kijabe Hospital</a>
             <div>
-                <a href="/dashboard" class="px-3 py-2 rounded-md hover:bg-gray-700">Dashboard</a>
                 <a href="/rfq" class="px-3 py-2 rounded-md hover:bg-gray-700">RFQ</a>
                 <a href="/items" class="px-3 py-2 rounded-md hover:bg-gray-700">Items</a>
                 <a href="/settings" class="px-3 py-2 rounded-md hover:bg-gray-700">Settings</a>
